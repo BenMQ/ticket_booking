@@ -6,12 +6,9 @@ gem "thin"
 gem "haml"
 gem "data_mapper"
 
-group :development do
-  gem "shotgun"
-  gem "pry"
-  gem "heroku"
-  gem "dm-sqlite-adapter"
-end
-
+gem "shotgun", :group => :development
+gem "pry", :group => :development
+gem "heroku", :group => :development
+gem "dm-sqlite-adapter", :group => :development
 
 gem "dm-postgres-adapter", :group => :production

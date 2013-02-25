@@ -21,4 +21,4 @@ class Booking
   property :delivered,    Boolean, :default => false
 end
 
-DataMapper.auto_upgrade!
+DataMapper.auto_migrate!
