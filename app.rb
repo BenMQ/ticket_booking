@@ -7,9 +7,9 @@ require "data_mapper"
 require "./db.rb"
 
 class App < Sinatra::Base
-  configure :production, :development do
-    enable :logging
-  end
+  # configure :production, :development do
+  #  enable :logging
+  # end
 
   configure do
     Compass.configuration do |config|
@@ -38,13 +38,14 @@ class App < Sinatra::Base
       address1: params[:address1],
       address2: params[:address2],
       zip: params[:zip],
-      ticket1: Integer(params[:ticket1]),
-      ticket2: Integer(params[:ticket2]),
-      ticket3: Integer(params[:ticket3]),
+      ticket1: params[:ticket1].to_i,
+      ticket2: params[:ticket2].to_i,
+      ticket3: params[:ticket3].to_i,
       payment_method: params[:payment_method],
       note: params[:note],
       placed: Time.now
       )
+    
     haml :success
   end
 

@@ -1,5 +1,3 @@
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/development.db")
-
 class Booking
   include DataMapper::Resource
   property :id,           Serial
@@ -20,5 +18,3 @@ class Booking
   property :placed,       DateTime
   property :delivered,    Boolean, :default => false
 end
-
-DataMapper.auto_migrate!

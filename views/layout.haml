@@ -11,7 +11,8 @@
             .twelve.columns
                 %h2 創造系·理想国计划2013 预售票订购
                 %hr/
-        #container= yield
+        .row
+            .twelve.columns#container= yield
         %script{:src => "javascripts/foundation/jquery.js"}
         %script{:src => "javascripts/foundation/jquery.foundation.accordion.js"}
         %script{:src => "javascripts/foundation/jquery.foundation.alerts.js"}
