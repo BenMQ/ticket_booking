@@ -1,0 +1,63 @@
+.row
+    .eight.columns
+        %form{:action => "/submit", :method => "POST"}
+            %fieldset
+                %legend 个人信息
+                .row
+                    .six.columns
+                        %label 姓名 *
+                        %input{:type => "text", :name => "name"}
+                    .six.columns
+                .row
+                    .six.columns
+                        %label 电子邮箱 *
+                        %input{:type => "text", :name => "email"}
+                    .six.columns
+                        %label 联系电话 *
+                        %input{:type => "text", :name => 'phone'}
+                .row
+                    .six.columns
+                        %label 学校
+                        %input{:type => "text", :name => "school"}
+                    .six.columns
+                        %label 宿舍
+                        %input{:type => "text", :name => "hostel"}
+                %label 地址
+                %input{:type => "text", :name => "address1", :placeholder => "第一行"}
+                %input{:type => "text", :name => "address2", :placeholder => "第二行"}
+                .row.collapse
+                    .two.mobile-one.columns
+                        %span.prefix Singapore
+                    .four.mobile-two.columns
+                        %input{:type => "text", :name => "zip", :placeholder => "邮区编号"}
+                    .six.mobile-one.columns
+                %br/
+
+            %fieldset
+                %legend 订票详情
+                performance information goes here
+                %br/
+                %br/
+                .row
+                    .four.columns
+                        %label 5月17日周五
+                        %input{:type => "text", :name => "ticket1", :placeholder => "张数"}
+                    .four.columns
+                        %label 5月18日周六
+                        %input{:type => "text", :name => "ticket2", :placeholder => "张数"}
+                    .four.columns
+                        %label 5月17日周日
+                        %input{:type => "text", :name => "ticket3", :placeholder => "张数"}
+                %label 支付方式
+                %input{:type => "radio", :name => "payment_method", :value => "cash"} 现金
+                %input{:type => "radio", :name => "payment_method", :value => "paypal"} Paypal
+                %input{:type => "radio", :name => "payment_method", :value => "alipay"} 支付宝
+                %input{:type => "radio", :name => "payment_method", :value => "bank"} 银行转账 (DBS/POSB)
+                %br/
+                %br/
+                %label 备注
+                %textarea{:name => "note", :cols => "10"}
+            %input.button{:type =>"submit", :value => "提交"}
+
+    .three.columns.offset-by-one Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum velit hic tempora obcaecati reprehenderit sint asperiores voluptatum placeat quos illo odio fugiat nisi iure quisquam illum eligendi quae numquam ut. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet eum necessitatibus nemo deserunt animi eos impedit facilis ipsum cupiditate ullam sint voluptas quia accusamus accusantium delectus repudiandae deleniti quod incidunt.lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus suscipit quas minima aliquam hic non temporibus consectetur voluptatem soluta voluptas. Dolore error vitae ut expedita quidem maiores hic placeat beatae.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis fugit error earum amet provident. Possimus ipsam velit eum amet a odio impedit cumque. Consectetur expedita dolore nesciunt ut nam perferendis!
+
