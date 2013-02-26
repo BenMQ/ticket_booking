@@ -5,7 +5,7 @@ gem "zurb-foundation", "3.0.9"
 gem "thin"
 gem "haml"
 gem "data_mapper"
-
+gem "pony"
 gem "shotgun", :group => :development
 gem "pry", :group => :development
 gem "heroku", :group => :development

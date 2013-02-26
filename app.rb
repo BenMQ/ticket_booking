@@ -1,10 +1,13 @@
+# encoding: utf-8
 require "rubygems"
 require "bundler/setup"
 require "sinatra/base"
 require "zurb-foundation"
 require "haml"
+require "pony"
 require "data_mapper"
 require "./db.rb"
+
 
 class App < Sinatra::Base
   # configure :production, :development do
@@ -49,8 +52,32 @@ class App < Sinatra::Base
       note: params[:note],
       placed: Time.now
       )
+    day1 = params[:ticket1].to_i
+    day2 = params[:ticket2].to_i
+    day3 = params[:ticket3].to_i
+    content = "Dear #{params[:name]},\nThank you for pre-ordering the tickets for Project Republica 2013. Here are the details of the order for your reference. Note: This is not a confirmation of payment.\n感谢您预订理想国2013演出门票，以下是您的确认信息供您保留。注：本邮件非付款确认。\n\nName: #{params[:name]}\nContact Number: #{params[:phone]}\nSchool: #{params[:school]}\nHostel: #{params[:hostel]}\nAddress:\n    #{params[:address1]}\n    #{params[:address2]}\n    Singapore #{params[:zip]}\n#{day1>0 ? "Tickets for 17 May: #{day1}\n" : ""}#{day2>0 ? "Tickets for 18 May: #{day2}\n" : ""}#{day3>0 ? "Tickets for 18 May: #{day3}\n" : ""}\n\nThank you for supporting Project Republica 2013.\n感谢您对理想国计划2013的支持。谢谢！\n\n\n Regards,\n Project Republica 2013 Team\n理想国计划2013团队"
     
-    haml :success
+
+    begin
+      Pony.mail(:to => "#{params[:email]}",
+              :from => "#{ENV['FROM_EMAIL']}",
+              :subject => 'Project Republica 2013 Pre-order confirmation',
+              :body =>  content,
+              :charset => 'utf-8',
+              :via => :smtp, :via_options => {
+                :address       => 'smtp.gmail.com',
+                :port       => '587',
+                :user_name       => "#{ENV['MAILER_USERNAME']}",
+                :password   => "#{ENV['MAILER_PASSWORD']}",
+                :authentication  => :plain,
+                :domain     => "facultyofcreativity.org"
+               }
+             )
+      haml :success
+    rescue
+      haml :mail_error
+    end
+    
   end
 
   get "/stylesheets/*.css" do |path|
@@ -61,7 +88,7 @@ end
 
 class Admin <Sinatra::Base
   use Rack::Auth::Basic, "Protected Area" do |username, password|
-    username == 'foo' && password == 'bar'
+    username == ENV['ADMIN_USERNAME'] && password == ['ADMIN_PASSWORD']
   end
 
   configure do
@@ -89,7 +116,7 @@ class Admin <Sinatra::Base
   get '/entry/' do
     redirect to('./entry')
   end
-  
+
 
   get '/entry/:id.html' do
     @entry = Booking.get(params[:id])
