@@ -1,3 +1,13 @@
-%h4 Something went wrong when trying to email you. Please drop us an email at tickets@facultyofcreativity.org
-
-"#{@e}
+Something went wrong when we tried to send email to you. 
+%br/
+Please drop us an email at 
+%a{:href => "mailto:tickets@facultyofcreativity.org"}tickets@facultyofcreativity.org
+so we don't miss out your order. 
+%br/
+Copy the error message below, if any.
+%br/
+%br/
+%blockquote
+    %pre
+        #{@e}
+%br/
