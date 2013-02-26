@@ -2,62 +2,63 @@
     .eight.columns
         %form{:action => "/submit", :method => "POST"}
             %fieldset
-                %legend 个人信息
+                %legend 个人信息 Personal Information
                 .row
                     .six.columns
-                        %label 姓名 *
+                        %label 姓名 Name *
                         %input{:type => "text", :name => "name"}
                     .six.columns
                 .row
                     .six.columns
-                        %label 电子邮箱 *
+                        %label 电子邮箱 Email *
                         %input{:type => "text", :name => "email"}
                     .six.columns
-                        %label 联系电话 *
+                        %label 联系电话 Phone number *
                         %input{:type => "text", :name => 'phone'}
                 .row
                     .six.columns
-                        %label 学校
+                        %label 学校 School
                         %input{:type => "text", :name => "school"}
                     .six.columns
-                        %label 宿舍
+                        %label 宿舍 Hostel
                         %input{:type => "text", :name => "hostel"}
-                %label 地址
-                %input{:type => "text", :name => "address1", :placeholder => "第一行"}
-                %input{:type => "text", :name => "address2", :placeholder => "第二行"}
+                %label 地址 Address
+                %input{:type => "text", :name => "address1", :placeholder => "第一行 Line 1"}
+                %input{:type => "text", :name => "address2", :placeholder => "第二行 Line 1"}
                 .row.collapse
                     .two.mobile-one.columns
                         %span.prefix Singapore
                     .four.mobile-two.columns
-                        %input{:type => "text", :name => "zip", :placeholder => "邮区编号"}
+                        %input{:type => "text", :name => "zip", :placeholder => "邮区编号 Postal code"}
                     .six.mobile-one.columns
                 %br/
 
             %fieldset
-                %legend 订票详情
-                performance information goes here
-                %br/
-                %br/
+                %legend 订票详情 Order details
                 .row
                     .four.columns
-                        %label 5月17日周五
-                        %input{:type => "text", :name => "ticket1", :placeholder => "张数"}
+                        %label 17 May, Friday
+                        %input{:type => "text", :name => "ticket1", :placeholder => "张数 No. of tickets"}
                     .four.columns
-                        %label 5月18日周六
-                        %input{:type => "text", :name => "ticket2", :placeholder => "张数"}
+                        %label 18 May, Saturday
+                        %input{:type => "text", :name => "ticket2", :placeholder => "张数 No. of tickets"}
                     .four.columns
-                        %label 5月17日周日
-                        %input{:type => "text", :name => "ticket3", :placeholder => "张数"}
-                %label 支付方式
-                %input{:type => "radio", :name => "payment_method", :value => "cash"} 现金
+                        %label 19 May, Sunday
+                        %input{:type => "text", :name => "ticket3", :placeholder => "张数 No. of tickets"}
+                %label 支付方式 Mode of payment
+                %input{:type => "radio", :name => "payment_method", :value => "cash"} 现金 Cash
+                %br
                 %input{:type => "radio", :name => "payment_method", :value => "paypal"} Paypal
-                %input{:type => "radio", :name => "payment_method", :value => "alipay"} 支付宝
-                %input{:type => "radio", :name => "payment_method", :value => "bank"} 银行转账 (DBS/POSB)
+                %br
+                %input{:type => "radio", :name => "payment_method", :value => "alipay"} 支付宝 Alipay
+                %br
+                %input{:type => "radio", :name => "payment_method", :value => "bank"} 银行转账 Fund Transfer (DBS/POSB)
                 %br/
                 %br/
-                %label 备注
-                %textarea{:name => "note", :cols => "10"}
-            %input.button{:type =>"submit", :value => "提交"}
+                %label 备注 Notes
+                %textarea{:name => "note"}
+            %input.button{:type =>"submit", :value => "提交 Submit"}
 
-    .three.columns.offset-by-one Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum velit hic tempora obcaecati reprehenderit sint asperiores voluptatum placeat quos illo odio fugiat nisi iure quisquam illum eligendi quae numquam ut. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet eum necessitatibus nemo deserunt animi eos impedit facilis ipsum cupiditate ullam sint voluptas quia accusamus accusantium delectus repudiandae deleniti quod incidunt.lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus suscipit quas minima aliquam hic non temporibus consectetur voluptatem soluta voluptas. Dolore error vitae ut expedita quidem maiores hic placeat beatae.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis fugit error earum amet provident. Possimus ipsam velit eum amet a odio impedit cumque. Consectetur expedita dolore nesciunt ut nam perferendis!
-
+    .four.columns
+        .panel{:onclick => 'window.location.href = window.location.href + "index_en.html"'}
+            Performance information goes here

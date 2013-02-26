@@ -3,27 +3,35 @@
     %head
         %meta{:charset => 'utf-8'}
         %title 理想国计划 2013 预定系统
-        %link{:rel =>"stylesheet", :href => "stylesheets/app.css"}
-        %script{:src => "javascripts/foundation/modernizr.foundation.js"}
+        %link{:rel =>"stylesheet", :href => "/stylesheets/app.css"}
+        %script{:src => "/javascripts/foundation/modernizr.foundation.js"}
 
     %body
         .row
             .twelve.columns
                 %h2 創造系·理想国计划2013 预售票订购
+                %h3 Faculty of Creativity - Project Republica 2013 Ticket Pre-order
                 %hr/
         .row
             .twelve.columns#container= yield
-        %script{:src => "javascripts/foundation/jquery.js"}
-        %script{:src => "javascripts/foundation/jquery.foundation.accordion.js"}
-        %script{:src => "javascripts/foundation/jquery.foundation.alerts.js"}
-        %script{:src => "javascripts/foundation/jquery.foundation.buttons.js"}
-        %script{:src => "javascripts/foundation/jquery.foundation.forms.js"}
-        %script{:src => "javascripts/foundation/jquery.foundation.mediaQueryToggle.js"}
-        %script{:src => "javascripts/foundation/jquery.foundation.navigation.js"}
-        %script{:src => "javascripts/foundation/jquery.foundation.orbit.js"}
-        %script{:src => "javascripts/foundation/jquery.foundation.reveal.js"}
-        %script{:src => "javascripts/foundation/jquery.foundation.tabs.js"}
-        %script{:src => "javascripts/foundation/jquery.foundation.tooltips.js"}
-        %script{:src => "javascripts/foundation/jquery.placeholder.js"}
         
-        %script{:src => "javascripts/foundation/app.js"}
+        %footer{:style => "width:700px; margin-left:auto; margin-right: auto; text-align: center"}
+            %h6.subheader
+                &copy 2013 
+                %a{:href => "http://facultyofcreativity.org"}Faculty of Creativity 
+        %br
+        %script{:src => "/javascripts/jquery.min.js"}
+        %script{:src => "/javascripts/foundation.min.js"}
+        / %script{:src => "javascripts/foundation/jquery.foundation.accordion.js"}
+        / %script{:src => "javascripts/foundation/jquery.foundation.alerts.js"}
+        / %script{:src => "javascripts/foundation/jquery.foundation.buttons.js"}
+        / %script{:src => "javascripts/foundation/jquery.foundation.forms.js"}
+        / %script{:src => "javascripts/foundation/jquery.foundation.mediaQueryToggle.js"}
+        / %script{:src => "javascripts/foundation/jquery.foundation.navigation.js"}
+        / %script{:src => "javascripts/foundation/jquery.foundation.orbit.js"}
+        / %script{:src => "javascripts/foundation/jquery.foundation.reveal.js"}
+        / %script{:src => "javascripts/foundation/jquery.foundation.tabs.js"}
+        / %script{:src => "javascripts/foundation/jquery.foundation.tooltips.js"}
+        / %script{:src => "javascripts/foundation/jquery.placeholder.js"}
+        
+        %script{:src => "/javascripts/app.js"}
