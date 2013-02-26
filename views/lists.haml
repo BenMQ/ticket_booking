@@ -1,0 +1,39 @@
+%table.twelve
+    %thead
+        %tr
+            %th ID
+            %th 姓名
+            %th 邮件
+            %th 学校宿舍
+            %th 周五
+            %th 周六
+            %th 周日
+            %th 付款
+            %th 递送
+    %tbody
+        - @entries.each do |entry|
+            %tr
+                %td 
+                    %a{:href => "./entry/#{entry.id}.html"} #{entry.id}
+                %td #{entry.name}
+                %td #{entry.email}
+                %td #{entry.school} - #{entry.hostel}
+                %td #{entry.ticket1}
+                %td #{entry.ticket2}
+                %td #{entry.ticket3}
+                %td 
+                    %form{:method => "POST", :action => "entry", :style => "display:inline"}
+                        %input{:type => 'hidden', :name => 'id', :value => "#{entry.id}"}
+                        %input{:type => 'hidden', :name => 'mode', :value => 'pay'}
+                        - if entry.paid
+                            %input.button.tiny.success{:type => 'submit', :value => "✓"}
+                        - else 
+                            %input.button.tiny.alert{:type => 'submit', :value => "x"}
+                %td 
+                    %form{:method => "POST", :action => "entry", :style => "display:inline"}
+                        %input{:type => 'hidden', :name => 'id', :value => "#{entry.id}"}
+                        %input{:type => 'hidden', :name => 'mode', :value => 'deliver'}
+                        - if entry.delivered
+                            %input.button.tiny.success{:type => 'submit', :value => "✓"}
+                        - else 
+                            %input.button.tiny.alert{:type => 'submit', :value => "x"}

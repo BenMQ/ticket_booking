@@ -1,0 +1,32 @@
+!!!
+%html
+    %head
+        %meta{:charset => 'utf-8'}
+        %title 理想国计划 2013 预定管理系统
+        %link{:rel =>"stylesheet", :href => "/stylesheets/app.css"}
+        %script{:src => "/javascripts/foundation/modernizr.foundation.js"}
+
+    %body
+        %h3 理想国计划 2013 预定管理
+        #container= yield
+        
+        %footer{:style => "width:700px; margin-left:auto; margin-right: auto; text-align: center"}
+            %h6.subheader
+                &copy 2013 
+                %a{:href => "http://facultyofcreativity.org"}Faculty of Creativity 
+        %br
+        %script{:src => "/javascripts/jquery.min.js"}
+        %script{:src => "/javascripts/foundation.min.js"}
+        / %script{:src => "javascripts/foundation/jquery.foundation.accordion.js"}
+        / %script{:src => "javascripts/foundation/jquery.foundation.alerts.js"}
+        / %script{:src => "javascripts/foundation/jquery.foundation.buttons.js"}
+        / %script{:src => "javascripts/foundation/jquery.foundation.forms.js"}
+        / %script{:src => "javascripts/foundation/jquery.foundation.mediaQueryToggle.js"}
+        / %script{:src => "javascripts/foundation/jquery.foundation.navigation.js"}
+        / %script{:src => "javascripts/foundation/jquery.foundation.orbit.js"}
+        / %script{:src => "javascripts/foundation/jquery.foundation.reveal.js"}
+        / %script{:src => "javascripts/foundation/jquery.foundation.tabs.js"}
+        / %script{:src => "javascripts/foundation/jquery.foundation.tooltips.js"}
+        / %script{:src => "javascripts/foundation/jquery.placeholder.js"}
+        
+        %script{:src => "/javascripts/app.js"}
