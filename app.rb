@@ -26,7 +26,7 @@ class App < Sinatra::Base
 
     set :scss, Compass.sass_engine_options
   end
-
+  
   get "/" do
     haml :index
   end

@@ -8,14 +8,18 @@
         %link{:rel =>"shortcut icon", :href => "/favicon.ico"}
         %script{:src => "/javascripts/jquery.min.js"}
         %script{:src => "/javascripts/foundation.min.js"}
-
     %body
         .row
             .twelve.columns
-                %h3 
-                    %a{:href => "/"}創造系·理想国计划2013 预售票订购
-                %h4.subheader 
-                    %a{:href => "/"}Faculty of Creativity - Project Republica 2013 Ticket Pre-order
+                .wrapper{:style => "position:relative;"}
+                    %img{:src => "/header.jpg"}
+                        %h3{:style => "position:absolute; top:60px; left:320px; z-index:1;"} 
+                            %a{:href => "/", :style => "background: rgba(255, 255, 255, 0.4);"}創造系·理想国计划2013预售票订购
+                        %h4.subheader{:style => "position:absolute; top:120px; left:380px; z-index:1;"}
+                            %a{:href => "/", :style => "background: rgba(255, 255, 255, 0.4);"}
+                                Faculty of Creativity - Project Republica 2013
+                                %br/
+                                Ticket Pre-order
                 %hr/
         .row
             .twelve.columns#container= yield
