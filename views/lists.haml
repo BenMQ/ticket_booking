@@ -8,6 +8,7 @@
             %th 周五
             %th 周六
             %th 周日
+            %th 备注
             %th 付款
             %th 递送
     %tbody
@@ -21,19 +22,20 @@
                 %td #{entry.ticket1}
                 %td #{entry.ticket2}
                 %td #{entry.ticket3}
+                %td #{entry.note}
                 %td 
                     %form{:method => "POST", :action => "entry", :style => "display:inline"}
                         %input{:type => 'hidden', :name => 'id', :value => "#{entry.id}"}
                         %input{:type => 'hidden', :name => 'mode', :value => 'pay'}
                         - if entry.paid
-                            %input.button.tiny.success{:type => 'submit', :value => "✓"}
+                            %input.button.tiny.success{:type => 'submit', :value => "是"}
                         - else 
-                            %input.button.tiny.alert{:type => 'submit', :value => "x"}
+                            %input.button.tiny.alert{:type => 'submit', :value => "否"}
                 %td 
                     %form{:method => "POST", :action => "entry", :style => "display:inline"}
                         %input{:type => 'hidden', :name => 'id', :value => "#{entry.id}"}
                         %input{:type => 'hidden', :name => 'mode', :value => 'deliver'}
                         - if entry.delivered
-                            %input.button.tiny.success{:type => 'submit', :value => "✓"}
+                            %input.button.tiny.success{:type => 'submit', :value => "是"}
                         - else 
-                            %input.button.tiny.alert{:type => 'submit', :value => "x"}
+                            %input.button.tiny.alert{:type => 'submit', :value => "否"}

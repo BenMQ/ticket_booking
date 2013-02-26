@@ -86,9 +86,36 @@ class Admin <Sinatra::Base
     haml :lists, :layout => :admin_layout
   end
 
+  get '/entry/' do
+    redirect to('./entry')
+  end
+  
+
   get '/entry/:id.html' do
     @entry = Booking.get(params[:id])
+    @success = params[:update] == "1"
     haml :entry, :layout => :admin_layout
+  end
+
+  post '/entry/:id.html' do
+    entry = Booking.get(params[:id])
+    entry.paid = ! params[:paid].nil?
+    entry.delivered = ! params[:delivered].nil?
+    entry.name = params[:name]
+    entry.email = params[:email]
+    entry.phone = params[:phone]
+    entry.school = params[:school]
+    entry.hostel = params[:hostel]
+    entry.address1 = params[:address1]
+    entry.address2 = params[:address2]
+    entry.zip = params[:zip]
+    entry.ticket1 = params[:ticket1].to_i
+    entry.ticket2 = params[:ticket2].to_i
+    entry.ticket3 = params[:ticket3].to_i
+    entry.payment_method = params[:payment_method]
+    entry.note = params[:note]
+    entry.save
+    redirect to("/entry/#{params[:id]}.html?update=1")
   end
 
   post '/entry' do
@@ -102,6 +129,13 @@ class Admin <Sinatra::Base
     entry.save
 
     redirect to('.')
+  end
+
+  post '/delete/:id.html' do
+    entry = Booking.get(params[:id])
+    entry.destroy
+
+    redirect to('/entry')
   end
 
 

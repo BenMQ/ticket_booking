@@ -1,55 +1,80 @@
-%table.twelve
-    %thead
-        %tr
-            %th ID
-            %th 姓名
-            %th 邮件
-            %th 电话
-            %th 学校宿舍
-            %th 地址
-            %th 周五
-            %th 周六
-            %th 周日
-            %th 付款方式
-            %th 订购时间
-            %th 备注
-            %th 付款
-            %th 递送
-    %tbody
-        %tr
-            %td #{@entry.id}
-            %td #{@entry.name}
-            %td #{@entry.email}
-            %td #{@entry.phone}
-            %td #{@entry.school} - #{@entry.hostel}
-            %td 
-                #{@entry.address1}
-                %br/
-                #{@entry.address2}
-                %br/
-                Singapore #{@entry.zip}
-            %td #{@entry.ticket1}
-            %td #{@entry.ticket2}
-            %td #{@entry.ticket3}
-            %td #{@entry.payment_method}
-            %td 
-                %time #{@entry.placed}
-            %td #{@entry.note}
-            %td 
-                
-                %form{:method => "POST", :action => "../entry", :style => "display:inline"}
-                    %input{:type => 'hidden', :name => 'id', :value => "#{@entry.id}"}
-                    %input{:type => 'hidden', :name => 'mode', :value => 'pay'}
+- if @success
+    .alert-box.success 数据已更新
+
+%form{:method => "POST", :action => "../entry/#{@entry.id}.html"}
+    %table.twelve
+        %thead
+            %tr
+                %th ID
+                %th 姓名
+                %th 邮件
+                %th{:width => "120px"} 电话
+                %th 学校宿舍
+                %th 地址
+                %th{:width => "80px"} 周五
+                %th{:width => "80px"} 周六
+                %th{:width => "80px"} 周日
+                %th{:width => "100px"} 付款方式
+                %th{:width => "50px"} 付款
+                %th{:width => "50px"} 递送
+        %tbody
+            %tr
+                %td #{@entry.id}
+                %td
+                    %input{:type => "text", :value => "#{@entry.name}", :name => "name"}
+                %td
+                    %input{:type => "text", :value => "#{@entry.email}", :name => "email"}
+                %td
+                    %input{:type => "text", :value => "#{@entry.phone}", :name => "phone"}
+                %td
+                    %input{:type => "text", :value => "#{@entry.school}", :name => "school"}
+                    %br/
+                    %input{:type => "text", :value => "#{@entry.hostel}", :name => "hostel"}
+                %td
+                    %input{:type => "text", :value => "#{@entry.address1}", :name => "address1"}
+                    %br/
+                    %input{:type => "text", :value => "#{@entry.address2}", :name => "address2"}
+                    %br/
+                    %input{:type => "text", :value => "#{@entry.zip}", :name => "zip"}
+                    
+                %td
+                    %input{:type => "text", :value => "#{@entry.ticket1}", :name => "ticket1"}
+                %td
+                    %input{:type => "text", :value => "#{@entry.ticket2}", :name => "ticket2"}
+                %td
+                    %input{:type => "text", :value => "#{@entry.ticket3}", :name => "ticket3"}
+                %td 
+                    %input{:type => "radio", :name => "payment_method", :checked => 'true', :value => "cash"} 现金
+                    %br
+                    %input{:type => "radio", :name => "payment_method", :value => "paypal"} Paypal
+                    %br
+                    %input{:type => "radio", :name => "payment_method", :value => "alipay"} 支付宝
+                    %br
+                    %input{:type => "radio", :name => "payment_method", :value => "bank"} 银行转账
+                    
+                %td 
                     - if @entry.paid
-                        %input.button.tiny.success{:type => 'submit', :value => "✓"}
+                        %input{:type => 'checkbox', :checked => "yes", :name => 'paid'}
                     - else 
-                        %input.button.tiny.alert{:type => 'submit', :value => "x"}
-            %td 
-                %form{:method => "POST", :action => "../entry", :style => "display:inline"}
-                    %input{:type => 'hidden', :name => 'id', :value => "#{@entry.id}"}
-                    %input{:type => 'hidden', :name => 'mode', :value => 'deliver'}
+                        %input{:type => 'checkbox', :name => 'paid'}
+                %td 
                     - if @entry.delivered
-                        %input.button.tiny.success{:type => 'submit', :value => "✓"}
+                        %input{:type => 'checkbox', :checked => "yes", :name => 'delivered'}
                     - else 
-                        %input.button.tiny.alert{:type => 'submit', :value => "x"}
-            
+                        %input{:type => 'checkbox', :name => 'delivered'}
+    #extra{:style => "width:500px; margin-left:auto; margin-right: auto; text-align: center"}
+        %label 订购时间
+        %time #{@entry.placed}
+        %br/
+        %br/
+        %label 备注
+        %textarea{:name => "note"} #{@entry.note}
+    #submit{:style => "width:100px; margin-left:auto; margin-right: auto; text-align: center"}
+        %input.button{:type => 'submit', :value => '更新'}
+
+%form{:method => "POST", :action => "../delete/#{@entry.id}.html"}
+    %input.button.alert{:type => 'submit', :value => '删除本项记录！', :onclick => "return confirm('你确定要这样做吗，删除不可恢复')"}
+
+
+:javascript
+    $(function(){$('input[value=#{@entry.payment_method}]').click()});

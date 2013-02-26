@@ -5,9 +5,11 @@
         %title 理想国计划 2013 预定管理系统
         %link{:rel =>"stylesheet", :href => "/stylesheets/app.css"}
         %script{:src => "/javascripts/foundation/modernizr.foundation.js"}
+        %script{:src => "/javascripts/jquery.min.js"}
 
     %body
-        %h3 理想国计划 2013 预定管理
+        %h3 
+            %a{:href => "/admin/entry"}理想国计划 2013 预定管理
         #container= yield
         
         %footer{:style => "width:700px; margin-left:auto; margin-right: auto; text-align: center"}
@@ -15,7 +17,7 @@
                 &copy 2013 
                 %a{:href => "http://facultyofcreativity.org"}Faculty of Creativity 
         %br
-        %script{:src => "/javascripts/jquery.min.js"}
+        
         %script{:src => "/javascripts/foundation.min.js"}
         / %script{:src => "javascripts/foundation/jquery.foundation.accordion.js"}
         / %script{:src => "javascripts/foundation/jquery.foundation.alerts.js"}
