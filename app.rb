@@ -74,7 +74,7 @@ class App < Sinatra::Base
                }
              )
       haml :success
-    rescue
+    rescue => @e
       haml :mail_error
     end
     
