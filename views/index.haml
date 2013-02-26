@@ -1,5 +1,5 @@
 .row
-    .eight.columns
+    .seven.columns
         %form{:action => "/submit", :method => "POST"}
             %fieldset
                 %legend 个人信息 Personal Information
@@ -48,17 +48,55 @@
                 %label 支付方式 Mode of payment
                 %input{:type => "radio", :name => "payment_method", :checked => 'true', :value => "cash"} 现金 Cash
                 %br
-                %input{:type => "radio", :name => "payment_method", :value => "paypal"} Paypal
+                %input{:type => "radio", :name => "payment_method", :value => "paypal"} Paypal (~$20)
                 %br
-                %input{:type => "radio", :name => "payment_method", :value => "alipay"} 支付宝 Alipay
+                %input{:type => "radio", :name => "payment_method", :value => "alipay"} 支付宝 Alipay (~￥98)
                 %br
                 %input{:type => "radio", :name => "payment_method", :value => "bank"} 银行转账 Fund Transfer (DBS/POSB)
                 %br/
                 %br/
                 %label 备注 Notes
                 %textarea{:name => "note"}
+            %h6.subheader
+
+                您可以在4月1日之前更改订票日期。4月1日之后我们将不接受日期更改的要求。
+                %br/
+                You may change the dates before 1 April. No requests will be accepted after that.
             %input.button{:type =>"submit", :value => "提交 Submit"}
 
-    .four.columns
+    .five.columns
         .panel{:onclick => 'window.location.href = window.location.href + "index_en.html"'}
-            Performance information goes here
+            %h4 
+                %small 现已开始预售理想国计划2013年以下三场演出的门票：
+            %ul.square
+                %li 2013年5月17日 周五
+                %li 2013年5月18日 周六
+                %li 2013年5月19日 周日
+            
+            %h4
+                %small 欢迎预订，您可以选择现金付款，也可以选择其他几种网络付款方式。部分服务商可能会收取手续费。
+                %br/
+                %small 提交成功后，我们将会向您发送确认邮件供您留存，以作参考。
+                %br/
+                %small 如果您在1小时后仍未收到邮件（请先检查垃圾邮件箱），或有任何疑问或意见，请联系
+                %br/
+                %small
+                    %a{:href => "mailto:tickets@facultyofcreativity.org"} tickets@facultyofcreativity.org
+
+            %h4
+                %small Pre-ordering of the tickets of the following three shows of Project Republica 2013 is now open
+            %ul.square
+                %li 17 May 2013, Friday
+                %li 18 May 2013, Saturday
+                %li 19 May 2013, Sunday
+            %h4
+                %small Please kindly fill in the order form on the left. You may chooes to pay by cash or other online payment methods. Note that some service providers may charge transaction fees.
+                %br/
+                %small Once we receive your order, we will send you an confirmation email. Please keep it for your own reference.
+                %br/
+                %small If you do not receive our email within 1 hour (remember to check your spambox), or should you have any enquiries or comments, feel free to write to us at
+                %br/
+                %small
+                    %a{:href => "mailto:tickets@facultyofcreativity.org"} tickets@facultyofcreativity.org
+
+
