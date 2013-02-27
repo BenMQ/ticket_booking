@@ -65,13 +65,18 @@
                             :escaped
                                 > < at least buy 1 ticket...
                 %label 支付方式 Mode of payment
-                %input{:type => "radio", :name => "payment_method", :checked => 'true', :value => "cash"} 现金 Cash
-                %br
-                %input{:type => "radio", :name => "payment_method", :value => "paypal"} Paypal (~$20)
-                %br
-                %input{:type => "radio", :name => "payment_method", :value => "alipay"} 支付宝 Alipay (~￥98)
-                %br
-                %input{:type => "radio", :name => "payment_method", :value => "bank"} 银行转账 Fund Transfer (DBS/POSB)
+                %label
+                    %input{:type => "radio", :name => "payment_method", :checked => 'true', :value => "cash"}
+                    现金 Cash
+                %label
+                    %input{:type => "radio", :name => "payment_method", :value => "paypal"}
+                    Paypal (~$20)
+                %label
+                    %input{:type => "radio", :name => "payment_method", :value => "alipay"}
+                    支付宝 Alipay (~￥98)
+                %label
+                    %input{:type => "radio", :name => "payment_method", :value => "bank"}
+                    银行转账 Fund Transfer (DBS/POSB)
                 %br/
                 %br/
                 %label 备注 Notes
@@ -96,9 +101,9 @@
             %h4
                 %small 欢迎预订，您可以选择现金付款，也可以选择其他几种网络付款方式。部分服务商可能会收取手续费。
                 %br/
-                %small 提交成功后，我们将会向您发送确认邮件供您留存，以作参考。
+                %small 提交成功后，我们将会向您发送确认邮件供您留存。
                 %br/
-                %small 如果您在1小时后仍未收到邮件（请先检查垃圾邮件箱），或有任何疑问或意见，请联系
+                %small 如果您在10分钟后仍未收到邮件（请先检查垃圾邮件箱），或有任何疑问或意见，请联系
                 %br/
                 %small
                     %a{:href => "mailto:tickets@facultyofcreativity.org"} tickets@facultyofcreativity.org
@@ -112,9 +117,9 @@
             %h4
                 %small Please kindly fill in the order form on the left. You may chooes to pay by cash or other online payment methods. Note that some service providers may charge transaction fees.
                 %br/
-                %small Once we receive your order, we will send you an confirmation email. Please keep it for your own reference.
+                %small Once we receive your order, we will send you an confirmation email for your reference.
                 %br/
-                %small If you do not receive our email within 1 hour (remember to check your spambox), or should you have any enquiries or comments, feel free to write to us at
+                %small If you do not receive our email within 10 minutes (remember to check your spambox), or should you have any enquiries or comments, feel free to write to us at
                 %br/
                 %small
                     %a{:href => "mailto:tickets@facultyofcreativity.org"} tickets@facultyofcreativity.org

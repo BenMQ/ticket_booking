@@ -26,7 +26,7 @@ class App < Sinatra::Base
 
     set :scss, Compass.sass_engine_options
   end
-  
+
   get "/" do
     haml :index
   end
@@ -55,9 +55,7 @@ class App < Sinatra::Base
     day1 = params[:ticket1].to_i
     day2 = params[:ticket2].to_i
     day3 = params[:ticket3].to_i
-    content = "Dear #{params[:name]},\nThank you for pre-ordering the tickets for Project Republica 2013. Here are the details of the order for your reference. \nNote: This is not a confirmation of payment.\n感谢您预订理想国2013演出门票，以下是您的确认信息供您保留。\n注：本邮件非付款确认。\n\nName: #{params[:name]}\nContact Number: #{params[:phone]}\nSchool: #{params[:school]}\nHostel: #{params[:hostel]}\nAddress:\n    #{params[:address1]}\n    #{params[:address2]}\n    Singapore #{params[:zip]}\n#{day1>0 ? "Tickets for 17 May: #{day1}\n" : ""}#{day2>0 ? "Tickets for 18 May: #{day2}\n" : ""}#{day3>0 ? "Tickets for 19 May: #{day3}\n" : ""}\n\nThank you for supporting Project Republica 2013.\n感谢您对理想国计划2013的支持。谢谢！\n\n\nRegards,\nProject Republica 2013 Team\n理想国计划2013团队"
-    
-
+    content = "Dear #{params[:name]},\nThank you for pre-ordering the tickets for Project Republica 2013. Here are the details of the order for your reference. \nNote: This is not a confirmation of payment.\n感谢您预订理想国2013演出门票，以下是您的确认信息供您保留。\n注：本邮件非付款确认。\n\nName: #{params[:name]}\nContact Number: #{params[:phone]}\nSchool: #{params[:school]}\nHostel: #{params[:hostel]}\n#{params[:address1] != "" ? "Address:\n    #{params[:address1]}\n    #{params[:address2]}\n    Singapore #{params[:zip]}\n" : ""}#{day1>0 ? "Tickets for 17 May: #{day1}\n" : ""}#{day2>0 ? "Tickets for 18 May: #{day2}\n" : ""}#{day3>0 ? "Tickets for 19 May: #{day3}\n" : ""}\n\nThank you for supporting Project Republica 2013.\n感谢您对理想国计划2013的支持。谢谢！\n\n\nRegards,\nProject Republica 2013 Team\n理想国计划2013团队"
     begin
       Pony.mail(:to => "#{params[:email]}",
               :from => "#{ENV['FROM_EMAIL']}",
