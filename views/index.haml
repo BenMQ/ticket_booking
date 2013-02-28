@@ -20,7 +20,7 @@
                     .six.columns
                         %label 电子邮箱 Email *
                         %input{:type => "text", :name => "email"}
-                        %small.error{:style => "display:none"}必填 | Required
+                        %small.error{:style => "display:none"}无效邮箱地址 | Invalid address
                     .six.columns
                         %label 联系电话 Phone number *
                         %input{:type => "text", :name => 'phone'}
@@ -92,7 +92,7 @@
     .five.columns
         .panel
             %h4 
-                %small 现已开始预售理想国计划2013年以下三场演出的门票：
+                %small 现已开始预售理想国计划2013年以下三场演出的门票，预售票单价为$19：
             %ul.square
                 %li 2013年5月17日 周五
                 %li 2013年5月18日 周六
@@ -109,13 +109,13 @@
                     %a{:href => "mailto:tickets@facultyofcreativity.org"} tickets@facultyofcreativity.org
 
             %h4
-                %small Pre-ordering of the following three shows of Project Republica 2013 is now open
+                %small Pre-ordering of the following three shows of Project Republica 2013 is now open, ticket price is $19 each
             %ul.square
                 %li 17 May 2013, Friday
                 %li 18 May 2013, Saturday
                 %li 19 May 2013, Sunday
             %h4
-                %small Please kindly fill in the order form on the left. You may chooes to pay by cash or other online payment methods. Note that some service providers may charge transaction fees.
+                %small You may chooes to pay by cash or other online payment methods. Note that some service providers may charge transaction fees.
                 %br/
                 %small Once we receive your order, we will send you an confirmation email for your reference.
                 %br/
@@ -133,6 +133,7 @@
     }
 
     $(function(){
+        $('input[name=name]').focus();
         $('#form').submit(function(e){
             function signal(dom) {
                 dom.addClass('error');
@@ -192,8 +193,13 @@
             }
 
             if (flag) {
-                $('#error-flag').hide();
-                $('#submit').val('提交中... Submitting...').addClass('secondary').attr('disabled', true);
+                if (!confirm("请确认您的邮箱地址是否正确：\n"+$('input[name=email]').val())) {
+                    $('input[name=email]').focus();
+                    e.preventDefault();
+                } else {
+                    $('#error-flag').hide();
+                    $('#submit').val('提交中... Submitting...').addClass('secondary').attr('disabled', true);
+                }
             } else {
                 $('#error-flag').show();
                 $(document).scrollTop($("#form").offset().top);
