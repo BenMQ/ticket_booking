@@ -1,17 +1,17 @@
-# sinatra-foundation-skeleton
+A ticket-booking application based on [Sinatra][sinatra] and [Foundation 3][foundation] framework. Deployed at [Heroku][heroku].
 
-Just a skeleton [Sinatra][sinatra] application which utilizes Zurb's
-[Foundation 3][foundation] responsive front-end framework. Oh, and it's also
-wired up for easy [Heroku][heroku] deployment.
+View the live site at [ticket.facultyofcreativity.org](ticket.facultyofcreativity.org).
 
-Simply fork, clone, or download the files to get started. Foundation's settings
-are in `views/scss/_settings.scss`
+Written for [Faculty of Creativity][foc] - Project Republica 2013.
 
-Run it in dev mode:
+Run in dev mode:
 
-     bundle exec shotgun config.ru
+```
+bundle exec shotgun config.ru
+```
 
 
 [sinatra]:http://sinatrarb.com
 [foundation]:http://foundation.zurb.com/
 [heroku]:http://heroku.com
+[foc]:http://facultyofcreativity.org
