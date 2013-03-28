@@ -13,7 +13,9 @@
                 %th 地址
                 %th{:width => "80px"} 周五
                 %th{:width => "80px"} 周六
+                %th{:width => "80px"} 周六<br/>下午
                 %th{:width => "80px"} 周日
+                %th{:width => "80px"} 周日<br/>下午
                 %th{:width => "100px"} 付款方式
                 %th{:width => "50px"} 付款
                 %th{:width => "50px"} 递送
@@ -42,7 +44,11 @@
                 %td
                     %input{:type => "text", :value => "#{@entry.ticket2}", :name => "ticket2"}
                 %td
+                    %input{:type => "text", :value => "#{@entry.ticket4}", :name => "ticket4"}
+                %td
                     %input{:type => "text", :value => "#{@entry.ticket3}", :name => "ticket3"}
+                %td
+                    %input{:type => "text", :value => "#{@entry.ticket5}", :name => "ticket5"}
                 %td 
                     %input{:type => "radio", :name => "payment_method", :checked => 'true', :value => "cash"} 现金
                     %br

@@ -7,7 +7,9 @@
             %th 学校宿舍
             %th 周五
             %th 周六
+            %th 周六下午
             %th 周日
+            %th 周日下午
             %th 付款方式
             %th 备注
             %th 付款
@@ -16,10 +18,14 @@
         -total1 = 0
         -total2 = 0
         -total3 = 0
+        -total4 = 0
+        -total5 = 0
         - @entries.each do |entry|
             -total1 = total1 + entry.ticket1
             -total2 = total2 + entry.ticket2
             -total3 = total3 + entry.ticket3
+            -total4 = total4 + entry.ticket4
+            -total5 = total5 + entry.ticket5
             %tr
                 %td 
                     %a{:href => "./entry/#{entry.id}.html"} #{entry.id}
@@ -29,7 +35,9 @@
                 %td #{entry.school} - #{entry.hostel}
                 %td #{entry.ticket1!=0 ? "#{entry.ticket1}" : ""}
                 %td #{entry.ticket2!=0 ? "#{entry.ticket2}" : ""}
+                %td #{entry.ticket4!=0 ? "#{entry.ticket4}" : ""}
                 %td #{entry.ticket3!=0 ? "#{entry.ticket3}" : ""}
+                %td #{entry.ticket5!=0 ? "#{entry.ticket5}" : ""}
                 %td #{entry.payment_method}
                 %td #{entry.note}
                 %td 
@@ -55,7 +63,9 @@
             %td Total
             %td #{total1}
             %td #{total2}
+            %td #{total4}
             %td #{total3}
+            %td #{total5}
             %td 
             %td 
             %td 
