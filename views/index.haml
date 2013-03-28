@@ -52,6 +52,7 @@
                         %small.error{:style => "display:none"}
                             :escaped
                                 > < 真的不买一张吗？
+                /
                     .six.columns
                         %label 18 May, Saturday 2:00pm
                         %input{:type => "text", :name => "ticket4", :placeholder => "张数 No. of tickets"}
@@ -65,6 +66,7 @@
                         %small.error{:style => "display:none"} 
                             :escaped
                                 > < Please...
+                /
                     .six.columns
                         %label 19 May, Sunday 2:00pm †
                         %input{:type => "text", :name => "ticket5", :placeholder => "张数 No. of tickets"}
@@ -73,7 +75,7 @@
                                 > < Please...
                 .row
                     .six.columns
-                        %label 19 May, Sunday 7:30pm †
+                        %label 19 May, Sunday 7:30pm
                         %input{:type => "text", :name => "ticket3", :placeholder => "张数 No. of tickets"}
                         %small.error{:style => "display:none"} 
                             :escaped
@@ -95,11 +97,11 @@
                 %br/
                 %label 备注 Notes
                 %textarea{:name => "note"}
-            %h6.subheader
+            /%h6.subheader
 
-                † 如果在5月10日前标注†的场次观众人数少于60人，主办方将合并或取消场次。若场次取消，您可以在5月16日前换票至仍有空位的其他场次。退票将不予受理。
-                %br/
-                † If the shows denoted with † have less than 60 seats sold before 10 May, they will be combined or cancelled. In the event that any of them are cancelled, you may change your ticket to another day before 16 May (subject to availability). No refund will be made.
+            /    † 如果在5月10日前标注†的场次观众人数少于60人，主办方将合并或取消场次。若场次取消，您可以在5月16日前换票至仍有空位的其他场次。退票将不予受理。
+            /    %br/
+            /    † If the shows denoted with † have less than 60 seats sold before 10 May, they will be combined or cancelled. In the event that any of them are cancelled, you may change your ticket to another day before 16 May (subject to availability). No refund will be made.
             %input.button{:type =>"submit", :value => "提交 Submit", :id => "submit"}
             %label.error{:style => "display:none", :id => "error-flag"} 请检查必填项目 | Please check the required fields.
 
@@ -120,10 +122,10 @@
                 %small 现已开始预售理想国计划2013年以下五场演出的门票，预售票单价为$19：
             %ul.square
                 %li 2013年5月17日 周五 7:30pm
-                %li 2013年5月18日 周六 2:00pm
+                /    %li 2013年5月18日 周六 2:00pm
                 %li 2013年5月18日 周六 7:30pm （售罄）
-                %li 2013年5月19日 周日 2:00pm †
-                %li 2013年5月19日 周日 7:30pm †
+                /    %li 2013年5月19日 周日 2:00pm †
+                %li 2013年5月19日 周日 7:30pm 
             
             %h4
                 %small 欢迎预订，您可以选择现金付款，也可以选择其他几种网络付款方式。部分服务商可能会收取手续费。
@@ -139,10 +141,10 @@
                 %small Pre-ordering of the following five shows of Project Republica 2013 is now open, ticket price is $19 each
             %ul.square
                 %li 17 May 2013, Friday 7:30pm
-                %li 18 May 2013, Saturday 2:00pm
+                /    %li 18 May 2013, Saturday 2:00pm
                 %li 18 May 2013, Saturday 7:30pm (Sold out)
-                %li 19 May 2013, Sunday 2:00pm †
-                %li 19 May 2013, Sunday 7:30pm †
+                /    %li 19 May 2013, Sunday 2:00pm †
+                %li 19 May 2013, Sunday 7:30pm 
             %h4
                 %small You may choose to pay by cash or other online payment methods. Note that some service providers may charge transaction fees.
                 %br/
@@ -202,7 +204,7 @@
             var tix2 = parseInt($('input[name=ticket2]').val());
             var tix3 = parseInt($('input[name=ticket3]').val());
             var tix4 = parseInt($('input[name=ticket4]').val());
-            var tix5 = parseInt($('input[name=ticket5]').val());
+            //var tix5 = parseInt($('input[name=ticket5]').val());
             if (isNaN(tix1)) {
                 tix1 = 0;
             }
@@ -212,25 +214,26 @@
             if (isNaN(tix3)) {
                 tix3 = 0;
             }
-            if (isNaN(tix4)) {
-                tix4 = 0;
-            }
-            if (isNaN(tix5)) {
-                tix5 = 0;
-            }
-            if (tix1 + tix2 + tix3 + tix4 + tix5 === 0) {
+            // if (isNaN(tix4)) {
+            //    tix4 = 0;
+            //}
+            //if (isNaN(tix5)) {
+            //    tix5 = 0;
+            //} 
+            
+            if (tix1 + tix2 + tix3=== 0) {
                 flag = false;
                 signal($('input[name=ticket1]'));
                 signal($('input[name=ticket2]'));
                 signal($('input[name=ticket3]'));
-                signal($('input[name=ticket4]'));
-                signal($('input[name=ticket5]'));
+                //signal($('input[name=ticket4]'));
+                //signal($('input[name=ticket5]'));
             } else {
                 deSignal($('input[name=ticket1]'));
                 deSignal($('input[name=ticket2]'));
                 deSignal($('input[name=ticket3]'));
-                deSignal($('input[name=ticket4]'));
-                deSignal($('input[name=ticket5]'));
+                //deSignal($('input[name=ticket4]'));
+                //deSignal($('input[name=ticket5]'));
             }
 
             if (flag) {
