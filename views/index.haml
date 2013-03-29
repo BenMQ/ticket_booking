@@ -52,28 +52,27 @@
                         %small.error{:style => "display:none"}
                             :escaped
                                 > < 真的不买一张吗？
-                /
+                .row
                     .six.columns
                         %label 18 May, Saturday 2:00pm
                         %input{:type => "text", :name => "ticket4", :placeholder => "张数 No. of tickets"}
                         %small.error{:style => "display:none"}
                             :escaped
                                 > < 真的不买一张吗？        
-                .row
                     .six.columns
                         %label 18 May, Saturday 7:30pm
                         %input{:type => "text", :name => "ticket2", :placeholder => "Sold out", :disabled => "true"}
                         %small.error{:style => "display:none"} 
                             :escaped
                                 > < Please...
-                /
-                    .six.columns
-                        %label 19 May, Sunday 2:00pm †
-                        %input{:type => "text", :name => "ticket5", :placeholder => "张数 No. of tickets"}
+                .row
+                    /
+                        .six.columns
+                        %label{:style => "display:none"} 19 May, Sunday 2:00pm
+                        %input{:type => "text", :name => "ticket5", :placeholder => "张数 No. of tickets", :style => "display:none"}
                         %small.error{:style => "display:none"} 
                             :escaped
                                 > < Please...
-                .row
                     .six.columns
                         %label 19 May, Sunday 7:30pm
                         %input{:type => "text", :name => "ticket3", :placeholder => "张数 No. of tickets"}
@@ -119,10 +118,10 @@
                 %small National Library Building
                 %br/
                 %br/
-                %small 现已开始预售理想国计划2013年以下五场演出的门票，预售票单价为$19：
+                %small 现已开始预售理想国计划2013年以下4场演出的门票，预售票单价为$19：
             %ul.square
                 %li 2013年5月17日 周五 7:30pm
-                /    %li 2013年5月18日 周六 2:00pm
+                %li 2013年5月18日 周六 2:00pm
                 %li 2013年5月18日 周六 7:30pm （售罄）
                 /    %li 2013年5月19日 周日 2:00pm †
                 %li 2013年5月19日 周日 7:30pm 
@@ -138,10 +137,10 @@
                     %a{:href => "mailto:tickets@facultyofcreativity.org"} tickets@facultyofcreativity.org
 
             %h4
-                %small Pre-ordering of the following five shows of Project Republica 2013 is now open, ticket price is $19 each
+                %small Pre-ordering of the following four shows of Project Republica 2013 is now open, ticket price is $19 each
             %ul.square
                 %li 17 May 2013, Friday 7:30pm
-                /    %li 18 May 2013, Saturday 2:00pm
+                %li 18 May 2013, Saturday 2:00pm
                 %li 18 May 2013, Saturday 7:30pm (Sold out)
                 /    %li 19 May 2013, Sunday 2:00pm †
                 %li 19 May 2013, Sunday 7:30pm 
@@ -214,25 +213,25 @@
             if (isNaN(tix3)) {
                 tix3 = 0;
             }
-            // if (isNaN(tix4)) {
-            //    tix4 = 0;
-            //}
+            if (isNaN(tix4)) {
+                tix4 = 0;
+            }
             //if (isNaN(tix5)) {
             //    tix5 = 0;
             //} 
             
-            if (tix1 + tix2 + tix3=== 0) {
+            if (tix1 + tix2 + tix3 + tix4 === 0) {
                 flag = false;
                 signal($('input[name=ticket1]'));
                 signal($('input[name=ticket2]'));
                 signal($('input[name=ticket3]'));
-                //signal($('input[name=ticket4]'));
+                signal($('input[name=ticket4]'));
                 //signal($('input[name=ticket5]'));
             } else {
                 deSignal($('input[name=ticket1]'));
                 deSignal($('input[name=ticket2]'));
                 deSignal($('input[name=ticket3]'));
-                //deSignal($('input[name=ticket4]'));
+                deSignal($('input[name=ticket4]'));
                 //deSignal($('input[name=ticket5]'));
             }
 
