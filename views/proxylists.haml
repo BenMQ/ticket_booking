@@ -1,0 +1,65 @@
+%table.twelve
+    %thead
+        %tr
+            %th ID
+            %th 姓名
+            %th 邮件
+            %th 学校宿舍
+            %th 类型
+            %th 周五
+            %th 周六<br/>下午
+            %th 周日<br/>下午
+            %th 付款方式
+            %th 备注
+            %th 付款
+            %th 递送
+    %tbody
+        -total1 = 0
+        -total2 = 0
+        -total3 = 0
+        - @entries.each do |entry|
+            -total1 = total1 + entry.ticket1
+            -total2 = total2 + entry.ticket2
+            -total3 = total3 + entry.ticket3
+            %tr
+                %td 
+                    %a{:href => "./entry/#{entry.id}.html"} #{entry.id}
+                %td 
+                    %a{:href => "./entry/#{entry.id}.html"} #{entry.name}
+                %td #{entry.email}
+                %td #{entry.school} - #{entry.hostel}
+                %td #{entry.cat}
+                %td #{entry.ticket1!=0 ? "#{entry.ticket1}" : ""}
+                %td #{entry.ticket2!=0 ? "#{entry.ticket2}" : ""}
+                %td #{entry.ticket3!=0 ? "#{entry.ticket3}" : ""}
+                %td #{entry.payment_method}
+                %td #{entry.note}
+                %td 
+                    %form{:method => "POST", :action => "entry", :style => "display:inline"}
+                        %input{:type => 'hidden', :name => 'id', :value => "#{entry.id}"}
+                        %input{:type => 'hidden', :name => 'mode', :value => 'pay'}
+                        - if entry.paid
+                            %input.button.tiny.success{:type => 'submit', :value => "是"}
+                        - else 
+                            %input.button.tiny.alert{:type => 'submit', :value => "否"}
+                %td 
+                    %form{:method => "POST", :action => "entry", :style => "display:inline"}
+                        %input{:type => 'hidden', :name => 'id', :value => "#{entry.id}"}
+                        %input{:type => 'hidden', :name => 'mode', :value => 'deliver'}
+                        - if entry.delivered
+                            %input.button.tiny.success{:type => 'submit', :value => "是"}
+                        - else 
+                            %input.button.tiny.alert{:type => 'submit', :value => "否"}
+        %tr
+            %td -
+            %td 
+            %td 
+            %td 
+            %td Total
+            %td #{total1}
+            %td #{total2}
+            %td #{total3}
+            %td 
+            %td 
+            %td 
+            %td 

@@ -1,0 +1,82 @@
+- if @success
+    .alert-box.success 数据已更新
+
+%form{:method => "POST", :action => "../entry/#{@entry.id}.html"}
+    %table.twelve
+        %thead
+            %tr
+                %th ID
+                %th{:width => "80px"} 姓名
+                %th{:width => "120px"} IC
+                %th 邮件
+                %th{:width => "120px"} 电话
+                %th 学校
+                %th 类型
+                %th{:width => "80px"} 周五
+                %th{:width => "80px"} 周六<br/>下午
+                %th{:width => "80px"} 周日<br/>下午
+                %th{:width => "100px"} 付款方式
+                %th{:width => "50px"} 付款
+                %th{:width => "50px"} 递送
+        %tbody
+            %tr
+                %td #{@entry.id}
+                %td
+                    %input{:type => "text", :value => "#{@entry.name}", :name => "name"}
+                %td
+                    %input{:type => "text", :value => "#{@entry.ic}", :name => "ic"}
+                %td
+                    %input{:type => "text", :value => "#{@entry.email}", :name => "email"}
+                %td
+                    %input{:type => "text", :value => "#{@entry.phone}", :name => "phone"}
+                %td
+                    %input{:type => "text", :value => "#{@entry.school}", :name => "school"}
+                    %br/
+                    %input{:type => "text", :value => "#{@entry.hostel}", :name => "hostel"}
+                %td
+                    %input{:type => "radio", :name => "cat", :checked => 'true', :value => "Public"} Public
+                    %br
+                    %input{:type => "radio", :name => "cat", :value => "Student"} Student
+                    
+                %td
+                    %input{:type => "text", :value => "#{@entry.ticket1}", :name => "ticket1"}
+                %td
+                    %input{:type => "text", :value => "#{@entry.ticket2}", :name => "ticket2"}
+                %td
+                    %input{:type => "text", :value => "#{@entry.ticket3}", :name => "ticket3"}
+                %td 
+                    %input{:type => "radio", :name => "payment_method", :checked => 'true', :value => "cash"} 现金
+                    %br
+                    %input{:type => "radio", :name => "payment_method", :value => "paypal"} Paypal
+                    %br
+                    %input{:type => "radio", :name => "payment_method", :value => "alipay"} 支付宝
+                    %br
+                    %input{:type => "radio", :name => "payment_method", :value => "bank"} 银行转账
+                    
+                %td 
+                    - if @entry.paid
+                        %input{:type => 'checkbox', :checked => "yes", :name => 'paid'}
+                    - else 
+                        %input{:type => 'checkbox', :name => 'paid'}
+                %td 
+                    - if @entry.delivered
+                        %input{:type => 'checkbox', :checked => "yes", :name => 'delivered'}
+                    - else 
+                        %input{:type => 'checkbox', :name => 'delivered'}
+    #extra{:style => "width:500px; margin-left:auto; margin-right: auto; text-align: center"}
+        %label 订购时间
+        %time #{@entry.placed}
+        %br/
+        %br/
+        %label 备注
+        %textarea{:name => "note"} #{@entry.note}
+    #submit{:style => "width:100px; margin-left:auto; margin-right: auto; text-align: center"}
+        %input.button{:type => 'submit', :value => '更新'}
+
+%form{:method => "POST", :action => "../delete/#{@entry.id}.html"}
+    %input.button.alert{:type => 'submit', :value => '删除本项记录！', :onclick => "return confirm('你确定要这样做吗，删除不可恢复')"}
+
+
+:javascript
+    $(function(){$('input[value=#{@entry.payment_method}]').click()});
+    $(function(){$('input[value=#{@entry.cat}]').click()});
