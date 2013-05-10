@@ -56,21 +56,21 @@
                             $0.00
                 %br/
                 .row
-                    .six.columns
+                    .ten.columns
                         %label 17 May, Friday 7:30pm
-                        %input{:type => "text", :name => "ticket1", :class => "tix", :placeholder => "张数 No. of tickets"}
+                        %input{:type => "text", :disabled => "true", :name => "ticket1", :class => "tix", :placeholder => "Please book from SISTIC directly (see link above)"}
                         %small.error{:style => "display:none"}
                             :escaped
                                 > < 真的不买一张吗？
                 .row
-                    .six.columns
+                    .ten.columns
                         %label 18 May, Saturday 2:30pm ‡
                         %input{:type => "text", :name => "ticket2", :class => "tix", :placeholder => "张数 No. of tickets"}
                         %small.error{:style => "display:none"}
                             :escaped
                                 > < Please...  
                 .row   
-                    .six.columns
+                    .ten.columns
                         %label 19 May, Sunday 2:30pm
                         %input{:type => "text", :name => "ticket3", :class => "tix", :placeholder => "张数 No. of tickets"}
                         %small.error{:style => "display:none"} 
@@ -125,7 +125,10 @@
                 %br/
                 %small 现已开始代售理想国计划2013年以下3场演出的门票：
             %ul.square
-                %li 2013年5月17日 周五 7:30pm
+                %li 
+                    2013年5月17日 周五 7:30pm （仅限
+                    %a{:href => "http://www.sistic.com.sg/portal/dt?retry=1&dt.windowProvider.targetPortletChannel=JSPTabContainer/sEventsCalendar/Event&dt.provider=PortletWindowProcessChannel&contentCode=proj0513&dt.windowProvider.currentChannelMode=VIEW&dt.isPortletRequest=true&dt.containerName=JSPTabContainer/sEventsCalendar&dt.action=process&dt.window.portletAction=RENDER"} SISTIC
+                    ）
                 %li 2013年5月18日 周六 2:30pm ‡
                 %li 2013年5月19日 周日 2:30pm 
             
@@ -142,7 +145,10 @@
             %h4
                 %small Ordering of the following 3 shows of Project Republica 2013 is now open.
             %ul.square
-                %li 17 May 2013, Friday 7:30pm
+                %li 
+                    17 May 2013, Friday 7:30pm (book on
+                    %a{:href => "http://www.sistic.com.sg/portal/dt?retry=1&dt.windowProvider.targetPortletChannel=JSPTabContainer/sEventsCalendar/Event&dt.provider=PortletWindowProcessChannel&contentCode=proj0513&dt.windowProvider.currentChannelMode=VIEW&dt.isPortletRequest=true&dt.containerName=JSPTabContainer/sEventsCalendar&dt.action=process&dt.window.portletAction=RENDER"} SISTIC
+                    )
                 %li 18 May 2013, Saturday 2:30pm ‡
                 %li 19 May 2013, Sunday 2:30pm 
             %h4
