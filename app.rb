@@ -28,7 +28,7 @@ class App < Sinatra::Base
   end
 
   get "/" do
-    haml :index
+    haml :index_offline
   end
 
   get "/submit" do
